@@ -7,7 +7,7 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     internal moveStates currentState; //current movement state.
 
     Vector3 maxRight, maxLeft, forward, centerRunVector;
-    GameObject mongoose, _camera;
+    GameObject mongoose, _camera, prefabPickup;
     public CMongoose mongooseScript;
     CCameraTransition cameraScript;
 
@@ -18,15 +18,16 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         numberToSin,
         lerpSpeed,
         collideTimer,
-        timeToWait;
+        timeToWait,
+        heightMultiplier;
     /*int powerUpHeatIncrease,
         powerUpHeatDecrease;*/
-    bool canCollide, delayWait;
+    bool canCollide, delayWait, magnetized;
 
 
 
     public int _MoveState;
-    public float _Speed, _Temperature, _Score;
+    public float _Speed, _Temperature, _Score, _BankedScore;
     public bool ISSHIELDED;
 
     // Use this for initialization
@@ -36,7 +37,7 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         mongooseScript = mongoose.GetComponent<CMongoose>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = _camera.GetComponent<CCameraTransition>();
-
+        prefabPickup = (GameObject)Resources.Load("Pickup");
 
         forward = new Vector3(transform.position.x, transform.position.y, _Speed * Time.deltaTime);
         _Temperature = 50;
@@ -53,12 +54,13 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         maxLeft = new Vector3(-2.5f, 0f, transform.position.z);
         centerRunVector = new Vector3(0f, 0f, transform.position.z);
         canCollide = true;
+        heightMultiplier = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        DelayWait(.5f, currentState);
+        //DelayWait(.5f, currentState);
         if (cameraScript._GameStarted)
         {
             input();
@@ -86,10 +88,16 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
                     collideTimer = 0;
                 }
             }
+            if(heightMultiplier >2f)
+            {
+                heightMultiplier -= 0.002f;
+            }
+
             //TODO: Check if the current scene is not factory or shipyard.
-            _Score += Time.deltaTime;
-            _Temperature -= Time.deltaTime;
+            //_Score += Time.deltaTime;
+            //_Temperature -= Time.deltaTime;
             
+
         }
     }
 
@@ -115,7 +123,7 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         if (currentState == moveStates.jumping)
         {
             numberToSin += 0.05f;
-            transform.position = new Vector3(transform.position.x, Mathf.Sin(numberToSin) * 2f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Sin(numberToSin) * heightMultiplier, transform.position.z);
 
             if (numberToSin >= 2.14f)
             {
@@ -208,15 +216,44 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     // collision with hot and cold blocks
     void OnTriggerEnter(Collider objectCollidedWith)
     {
-        if (objectCollidedWith.tag == "points")
+        if (objectCollidedWith.tag == "BabyIguana")
         {
-            objectCollidedWith.gameObject.transform.position = gameObject.transform.position - new Vector3(0f, 0f, -100f);
+            _Score = _Score + 1;
         }
 
-        //if (objectCollidedWith.tag == "Cold")
-        //{
-        //    _temperature -= powerUpHeatDecrease;
-        //}
+        if (objectCollidedWith.tag == "Oasis")
+        {
+            _BankedScore = _Score;
+            _Score = 0;
+        }
+
+        if(objectCollidedWith.tag=="Courier")
+        {
+            _BankedScore = _Score;
+            _Score = 0;
+        }
+
+        if (objectCollidedWith.tag == "SuperJump")
+        {
+            heightMultiplier = 5f;
+        }
+
+        if(objectCollidedWith.tag == "Magnet")
+        {
+            magnetized = true;
+        }
+
+        if(objectCollidedWith.tag == "BreedingGround")
+        {
+            //TODO: Add code for breeding ground after clarification from designers
+        }
+
+        if(objectCollidedWith.tag == "ScorchedEarth")
+        {
+            //TODO: Add code for scorched earth after approval from greg that it's actually possible
+        }
+
+
         if (canCollide)
         {
             //
@@ -307,4 +344,5 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         }
         else { timeToWait = time; }
     }
+
 }
