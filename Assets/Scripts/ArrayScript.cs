@@ -4,10 +4,9 @@ using System.Collections;
 public class ArrayScript : MonoBehaviour 
 {
 	private ArrayScript instance;
-	//private Random randomNumber;
 
 	private TerrainArray terrain;
-	private TerrainArray storage;
+	private TerrainArray[] storage;
 
 	private char wall = 'W';
 	private char jump = 'J';
@@ -15,6 +14,8 @@ public class ArrayScript : MonoBehaviour
 	private char empty = 'O';
 
 	private int arrayFillIndex = 32;
+	private int currentBin = 0;
+	private int arrayDirection = 1;
 
 	public enum LaneColumn
 	{
@@ -30,20 +31,140 @@ public class ArrayScript : MonoBehaviour
 		//randomNumber = new Random();
 
 		terrain = new TerrainArray(500);
-		storage = new TerrainArray(3);
+		storage = new TerrainArray[7];
+		storage[0] = new TerrainArray(3);
+		storage[1] = new TerrainArray(3);
+		storage[2] = new TerrainArray(3);
+		storage[3] = new TerrainArray(3);
+		storage[4] = new TerrainArray(3);
+		storage[5] = new TerrainArray(3);
+		storage[6] = new TerrainArray(3);
 
-		//Saving to the storage array
-		storage.SetData((int)LaneColumn.A, 0, wall);
-		storage.SetData((int)LaneColumn.B, 0, empty);
-		storage.SetData((int)LaneColumn.C, 0, empty);
+		#region Bin 0
+		// (X, X, O)
+		//Option 1
+		storage[0].SetData((int)LaneColumn.A, 0, empty);
+		storage[0].SetData((int)LaneColumn.B, 0, wall);
+		storage[0].SetData((int)LaneColumn.C, 0, empty);
 
-		storage.SetData((int)LaneColumn.A, 1, empty);
-		storage.SetData((int)LaneColumn.B, 1, wall);
-		storage.SetData((int)LaneColumn.C, 1, empty);
+		//Option 2
+		storage[0].SetData((int)LaneColumn.A, 1, slide);
+		storage[0].SetData((int)LaneColumn.B, 1, wall);
+		storage[0].SetData((int)LaneColumn.C, 1, empty);
 
-		storage.SetData((int)LaneColumn.A, 2, empty);
-		storage.SetData((int)LaneColumn.B, 2, empty);
-		storage.SetData((int)LaneColumn.C, 2, wall);
+		//Option 3
+		storage[0].SetData((int)LaneColumn.A, 2, wall);
+		storage[0].SetData((int)LaneColumn.B, 2, wall);
+		storage[0].SetData((int)LaneColumn.C, 2, jump);
+		#endregion
+
+		#region Bin 1
+		//(X, O, O)
+		//Option 1
+		storage[1].SetData((int)LaneColumn.A, 0, wall);
+		storage[1].SetData((int)LaneColumn.B, 0, empty);
+		storage[1].SetData((int)LaneColumn.C, 0, empty);
+		
+		//Option 2
+		storage[1].SetData((int)LaneColumn.A, 1, wall);
+		storage[1].SetData((int)LaneColumn.B, 1, empty);
+		storage[1].SetData((int)LaneColumn.C, 1, slide);
+		
+		//Option 3
+		storage[1].SetData((int)LaneColumn.A, 2, wall);
+		storage[1].SetData((int)LaneColumn.B, 2, jump);
+		storage[1].SetData((int)LaneColumn.C, 2, empty);
+		#endregion
+
+		#region Bin 2
+		//(X, O, O)
+		//Option 1
+		storage[2].SetData((int)LaneColumn.A, 0, wall);
+		storage[2].SetData((int)LaneColumn.B, 0, empty);
+		storage[2].SetData((int)LaneColumn.C, 0, jump);
+		
+		//Option 2
+		storage[2].SetData((int)LaneColumn.A, 1, wall);
+		storage[2].SetData((int)LaneColumn.B, 1, empty);
+		storage[2].SetData((int)LaneColumn.C, 1, slide);
+		
+		//Option 3
+		storage[2].SetData((int)LaneColumn.A, 2, wall);
+		storage[2].SetData((int)LaneColumn.B, 2, slide);
+		storage[2].SetData((int)LaneColumn.C, 2, jump);
+		#endregion
+
+		#region Bin 3
+		//(X, O, X)
+		//Option 1
+		storage[3].SetData((int)LaneColumn.A, 0, jump);
+		storage[3].SetData((int)LaneColumn.B, 0, empty);
+		storage[3].SetData((int)LaneColumn.C, 0, slide);
+		
+		//Option 2
+		storage[3].SetData((int)LaneColumn.A, 1, wall);
+		storage[3].SetData((int)LaneColumn.B, 1, empty);
+		storage[3].SetData((int)LaneColumn.C, 1, wall);
+		
+		//Option 3
+		storage[3].SetData((int)LaneColumn.A, 2, wall);
+		storage[3].SetData((int)LaneColumn.B, 2, slide);
+		storage[3].SetData((int)LaneColumn.C, 2, wall);
+		#endregion
+
+		#region Bin 4
+		//(O, O, X)
+		//Option 1
+		storage[4].SetData((int)LaneColumn.A, 0, slide);
+		storage[4].SetData((int)LaneColumn.B, 0, empty);
+		storage[4].SetData((int)LaneColumn.C, 0, wall);
+		
+		//Option 2
+		storage[4].SetData((int)LaneColumn.A, 1, jump);
+		storage[4].SetData((int)LaneColumn.B, 1, empty);
+		storage[4].SetData((int)LaneColumn.C, 1, wall);
+		
+		//Option 3
+		storage[4].SetData((int)LaneColumn.A, 2, slide);
+		storage[4].SetData((int)LaneColumn.B, 2, jump);
+		storage[4].SetData((int)LaneColumn.C, 2, wall);
+		#endregion
+
+		#region Bin 5
+		//(O, O, X)
+		//Option 1
+		storage[5].SetData((int)LaneColumn.A, 0, empty);
+		storage[5].SetData((int)LaneColumn.B, 0, empty);
+		storage[5].SetData((int)LaneColumn.C, 0, wall);
+		
+		//Option 2
+		storage[5].SetData((int)LaneColumn.A, 1, jump);
+		storage[5].SetData((int)LaneColumn.B, 1, empty);
+		storage[5].SetData((int)LaneColumn.C, 1, wall);
+		
+		//Option 3
+		storage[5].SetData((int)LaneColumn.A, 2, empty);
+		storage[5].SetData((int)LaneColumn.B, 2, slide);
+		storage[5].SetData((int)LaneColumn.C, 2, wall);
+		#endregion
+
+		#region Bin 6
+		//(O, X, X)
+		//Option 1
+		storage[6].SetData((int)LaneColumn.A, 0, empty);
+		storage[6].SetData((int)LaneColumn.B, 0, wall);
+		storage[6].SetData((int)LaneColumn.C, 0, empty);
+		
+		//Option 2
+		storage[6].SetData((int)LaneColumn.A, 1, empty);
+		storage[6].SetData((int)LaneColumn.B, 1, wall);
+		storage[6].SetData((int)LaneColumn.C, 1, slide);
+		
+		//Option 3
+		storage[6].SetData((int)LaneColumn.A, 2, jump);
+		storage[6].SetData((int)LaneColumn.B, 2, wall);
+		storage[6].SetData((int)LaneColumn.C, 2, wall);
+		#endregion
 
 		//Start adding at index 32 in the terrain array or later or it won't show up!
 	}
@@ -52,22 +173,23 @@ public class ArrayScript : MonoBehaviour
 	void Update () 
 	{
 		if(arrayFillIndex < 500)
-			if(arrayFillIndex % 2 == 0)
+			if(arrayFillIndex % 5 == 0)
 		{
-			int select = Random.Range(0, 3);
+			int select = Random.Range(0, storage[currentBin].Length);
 
 			//Debug.Log("Index: " + arrayFillIndex + " Select: " + select);
 
-			char laneOneValue = storage.GetData((int)LaneColumn.A, select);
-			char laneTwoValue = storage.GetData((int)LaneColumn.B, select);
-			char laneThreeValue = storage.GetData((int)LaneColumn.C, select);
+			char laneOneValue = storage[currentBin].GetData((int)LaneColumn.A, select);
+			char laneTwoValue = storage[currentBin].GetData((int)LaneColumn.B, select);
+			char laneThreeValue = storage[currentBin].GetData((int)LaneColumn.C, select);
 
 			terrain.SetData((int)LaneColumn.A, arrayFillIndex, laneOneValue);
 			terrain.SetData((int)LaneColumn.B, arrayFillIndex, laneTwoValue);
 			terrain.SetData((int)LaneColumn.C, arrayFillIndex, laneThreeValue);
 
-			//arrayFillIndex++;
-			Debug.Log(arrayFillIndex);
+			currentBin += arrayDirection;
+			if(currentBin == 0 || currentBin == 6)
+				arrayDirection *= -1;
 		}
 
 		arrayFillIndex++;
