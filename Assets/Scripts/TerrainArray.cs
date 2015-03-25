@@ -41,6 +41,14 @@ public class TerrainArray
 		return output;
 	}
 
+	public int Length
+	{
+		get
+		{
+			return totalLaneIndex;
+		}
+	}
+
 	private void SetIndex(int index)
 	{
 		totalLaneIndex = index;
