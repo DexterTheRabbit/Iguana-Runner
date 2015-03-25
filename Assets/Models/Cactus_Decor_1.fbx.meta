@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d0ddc585b27c634ebfb8326e113a46d
+guid: 16845bf38b2c460418afef7decfff0cd
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Bush003
+    4300000: Cactus_Decor_1
     9500000: //RootNode
   materials:
     importMaterials: 1

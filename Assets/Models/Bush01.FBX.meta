@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f83177821f603534cac0b35a4c3fa12c
+guid: e6d4662cf76a20c4d9f5dd351c5ac1e4
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Rock_Bed001
+    4300000: Bush001
     9500000: //RootNode
   materials:
     importMaterials: 1
