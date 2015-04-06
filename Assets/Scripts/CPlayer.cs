@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
 {
@@ -74,7 +75,8 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
             }
             if(mongooseScript.currentState == CMongoose.followStates.eating)
             {
-                Application.LoadLevel("SceneTest");
+                Console.WriteLine("mongose eating");
+                //Application.LoadLevel("SceneTest");
             }
             
             if (canCollide==false)

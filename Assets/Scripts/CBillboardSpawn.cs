@@ -12,6 +12,11 @@ public class CBillboardSpawn : MonoBehaviour
     {
         cam = GameObject.Find("Main Camera");
 
+        this.GetComponent<CBillboardPool>().Activate(0, new Vector3(0f, -0.5f, 0), Quaternion.identity);
+        this.GetComponent<CBillboardPool>().Activate(0, new Vector3(0f, -0.5f, 50), Quaternion.identity);
+        this.GetComponent<CBillboardPool>().Activate(0, new Vector3(0f, -0.5f, 100), Quaternion.identity);
+        this.GetComponent<CBillboardPool>().Activate(0, new Vector3(0f, -0.5f, 150), Quaternion.identity);
+
         StartCoroutine(SpawnLane());
 	}
 	

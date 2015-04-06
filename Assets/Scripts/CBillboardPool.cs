@@ -27,7 +27,7 @@ public class CBillboardPool : MonoBehaviour
 
             for(int x = 0; x < poolAmount[i]; x++)
             {
-                temp = (GameObject)Instantiate(objectsToPool[i]);
+                temp = (GameObject)Instantiate(objectsToPool[i], new Vector3(0f, -0.5f, x * 50), Quaternion.identity);
                 temp.transform.parent = this.transform;
 
                 pool[i].Add(temp);
