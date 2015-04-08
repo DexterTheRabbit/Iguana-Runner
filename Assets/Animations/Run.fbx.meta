@@ -116,7 +116,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Take 001
       takeName: Take 001
-      firstFrame: 448
+      firstFrame: 447
       lastFrame: 472
       wrapMode: 0
       orientationOffsetY: 0

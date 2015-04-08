@@ -161,11 +161,13 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         if (Input.GetKeyDown(KeyCode.A) && transform.position.x > maxLeft.x && currentState != moveStates.jumping)
         {
             _MoveState -= 1;
+            anim.Play("JukeLeft");
         }
 
         if (Input.GetKeyDown(KeyCode.D) && transform.position.x < maxRight.x && currentState != moveStates.jumping)
         {
             _MoveState += 1;
+            anim.Play("JukeRight");
         }
         if (Input.GetKeyDown(KeyCode.W) && currentState != moveStates.jumping)
         {
@@ -201,10 +203,12 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
                 if (touchStartX > touchStopX)
                 {
                     _MoveState -= 1;
+                    anim.Play("JukeLeft");
                 }
                 if (touchStopX > touchStartX)
                 {
                     _MoveState += 1;
+                    anim.Play("JukeRight");
                 }
             }
             if (changeInTouchY > changeInTouchX && changeInTouchY > 40)

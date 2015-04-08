@@ -112,7 +112,123 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 270
+      lastFrame: 289
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Iguana_model:polySurface1
+        weight: 1
+      - path: Placement
+        weight: 1
+      - path: Placement/Left_Hind_leg
+        weight: 1
+      - path: Placement/Left_Upper_Leg
+        weight: 1
+      - path: Placement/Right_Hind_leg
+        weight: 1
+      - path: Placement/Right_upper_Leg
+        weight: 1
+      - path: Placement/Root_Hips
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back/Upper_Body_Clav
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back/Upper_Body_Clav/Head_Neck
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back/Upper_Body_Clav/Head_Neck/Jaw 1
+        weight: 1
+      - path: Placement/Root_Hips/Tail_Three
+        weight: 1
+      - path: Placement/Root_Hips/Tail_Three/Tail_Two
+        weight: 1
+      - path: Placement/Root_Hips/Tail_Three/Tail_Two/Tail_One
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/joint11
+        weight: 1
+      - path: Root/joint11/joint12
+        weight: 1
+      - path: Root/joint11/joint12/joint13
+        weight: 1
+      - path: Root/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: Root/Left_Leg
+        weight: 1
+      - path: Root/Left_Leg/Left_Knee
+        weight: 1
+      - path: Root/Left_Leg/Left_Knee/Left_Ankle
+        weight: 1
+      - path: Root/Left_Leg/Left_Knee/Left_Ankle/joint10
+        weight: 1
+      - path: Root/Right_Leg
+        weight: 1
+      - path: Root/Right_Leg/Right_Knee
+        weight: 1
+      - path: Root/Right_Leg/Right_Knee/Right_ankle
+        weight: 1
+      - path: Root/Right_Leg/Right_Knee/Right_ankle/joint10 1
+        weight: 1
+      - path: Root/Spine_Middle
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/Jaw
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/Jaw/joint17
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint18
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint19
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint30
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint31
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Left_Arm
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Left_Arm/Left_Elbow
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Left_Arm/Left_Elbow/joint6
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Right_Arm
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Right_Arm/Right_Elbow
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Right_Arm/Right_Elbow/joint6 1
+        weight: 1
+      - path: squash1Handle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
