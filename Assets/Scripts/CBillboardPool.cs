@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class CBillboardPool : MonoBehaviour 
 {
@@ -9,9 +10,16 @@ public class CBillboardPool : MonoBehaviour
 
     public List<GameObject>[] pool;
 
+    [HideInInspector]
+    public int num = 0;
+
+    GameObject player;
+
 	// Use this for initialization
 	void Start ()
     {
+        player = GameObject.Find("Player");
+
         ObjInstantiate();
 	}
 
@@ -27,8 +35,10 @@ public class CBillboardPool : MonoBehaviour
 
             for(int x = 0; x < poolAmount[i]; x++)
             {
-                temp = (GameObject)Instantiate(objectsToPool[i], new Vector3(0f, -0.5f, x * 50), Quaternion.identity);
+                temp = (GameObject)Instantiate(objectsToPool[UnityEngine.Random.Range(0, objectsToPool.Length)], new Vector3(0f, -0.5f, num * 50), Quaternion.identity);
                 temp.transform.parent = this.transform;
+                //temp.SetActive(false);
+                num++;
 
                 pool[i].Add(temp);
             }
@@ -63,6 +73,5 @@ public class CBillboardPool : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	
 	}
 }
