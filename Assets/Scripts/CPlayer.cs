@@ -163,7 +163,6 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
             _MoveState -= 1;
             anim.Play("JukeLeft");
         }
-
         if (Input.GetKeyDown(KeyCode.D) && transform.position.x < maxRight.x && currentState != moveStates.jumping)
         {
             _MoveState += 1;

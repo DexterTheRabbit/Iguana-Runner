@@ -6,9 +6,9 @@ public class CGui : MonoBehaviour
     public GameObject _Player;
     public GameObject _mongoose;
 
-    private string versionNumber;
+    //private string versionNumber;
 
-    CPlayer _playerScript;
+    //CPlayer _playerScript;
     CMongoose _mongooseScript;
     CCameraTransition _cameraFollowerScript;
     Rect titleRect, exitRect, startRect, versionRect, scoreRect, heatRect;
@@ -16,9 +16,9 @@ public class CGui : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        versionNumber = "5.1.1";
+        //versionNumber = "5.1.1";
 
-        _playerScript = _Player.GetComponent<CPlayer>();
+        //_playerScript = _Player.GetComponent<CPlayer>();
         _cameraFollowerScript = GetComponent<CCameraTransition>();
         _mongooseScript = _mongoose.GetComponent<CMongoose>();
         heatRect = new Rect(Screen.width / 2 - 15f, 0f, 120f, 30f);

@@ -26,7 +26,6 @@ public class CBillboardDestroy : MonoBehaviour
 
     void Update()
     {
-
         if(transform.position.z < player.transform.position.z - 30)
         {
             gameObject.SetActive(false);
