@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: aa75799c283d9cb44bc34bf26e6701c9
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Head_neck
+    100002: //RootNode
+    100004: Iguana_model:polySurface1
+    100006: Jaw
+    100008: joint10
+    100010: joint10 1
+    100012: joint11
+    100014: joint12
+    100016: joint13
+    100018: joint14
+    100020: joint17
+    100022: joint18
+    100024: joint19
+    100026: joint20
+    100028: joint30
+    100030: joint31
+    100032: joint6
+    100034: joint6 1
+    100036: Left_Ankle
+    100038: Left_Arm
+    100040: Left_Elbow
+    100042: Left_Knee
+    100044: Left_Leg
+    100046: Right_ankle
+    100048: Right_Arm
+    100050: Right_Elbow
+    100052: Right_Knee
+    100054: Right_Leg
+    100056: Root
+    100058: Spine_Middle
+    100060: Spine_top
+    100062: squash1Handle
+    400000: Head_neck
+    400002: //RootNode
+    400004: Iguana_model:polySurface1
+    400006: Jaw
+    400008: joint10
+    400010: joint10 1
+    400012: joint11
+    400014: joint12
+    400016: joint13
+    400018: joint14
+    400020: joint17
+    400022: joint18
+    400024: joint19
+    400026: joint20
+    400028: joint30
+    400030: joint31
+    400032: joint6
+    400034: joint6 1
+    400036: Left_Ankle
+    400038: Left_Arm
+    400040: Left_Elbow
+    400042: Left_Knee
+    400044: Left_Leg
+    400046: Right_ankle
+    400048: Right_Arm
+    400050: Right_Elbow
+    400052: Right_Knee
+    400054: Right_Leg
+    400056: Root
+    400058: Spine_Middle
+    400060: Spine_top
+    400062: squash1Handle
+    4300000: Iguana_model:polySurface1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Iguana_model:polySurface1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .200000003
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

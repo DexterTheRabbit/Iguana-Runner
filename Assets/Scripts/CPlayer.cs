@@ -12,6 +12,17 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     public CMongoose mongooseScript;
     CCameraTransition cameraScript;
 
+    private Animator anim;							// a reference to the animator on the character
+    private AnimatorStateInfo currentBaseState;			// a reference to the current state of the animator, used for base layer
+    private AnimatorStateInfo layer2CurrentState;	// a reference to the current state of the animator, used for layer 2
+    private GameObject iguanaModel;
+
+    static int idleState = Animator.StringToHash("Base Layer.Idle");
+    static int runState = Animator.StringToHash("Base Layer.Running");
+    static int jumpState = Animator.StringToHash("Base Layer.Jumping");
+    static int jukeRightState = Animator.StringToHash("Base Layer.JukeRight");
+    static int jukeLeftState = Animator.StringToHash("Base Layer.JukeLeft");
+
     float touchStartX,
         touchStartY,
         touchStopX,
@@ -33,10 +44,14 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     // Use this for initialization
     void Start()
     {
+        iguanaModel = GameObject.FindGameObjectWithTag("IguanaModel");
         mongoose = GameObject.FindGameObjectWithTag("Mongoose");
         mongooseScript = mongoose.GetComponent<CMongoose>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = _camera.GetComponent<CCameraTransition>();
+        anim = iguanaModel.GetComponent<Animator>();
+        if (anim.layerCount == 2)
+            anim.SetLayerWeight(1, 1);
 
 
         forward = new Vector3(transform.position.x, transform.position.y, _Speed * Time.deltaTime);
