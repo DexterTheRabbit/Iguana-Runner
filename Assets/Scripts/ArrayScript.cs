@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class ArrayScript : MonoBehaviour 
 {
@@ -7,6 +8,7 @@ public class ArrayScript : MonoBehaviour
 
 	private TerrainArray terrain;
 	private TerrainArray[] storage;
+	private string[] playerPath;
 
 	private char wall = 'W';
 	private char jump = 'J';
@@ -39,6 +41,8 @@ public class ArrayScript : MonoBehaviour
 		storage[4] = new TerrainArray(3);
 		storage[5] = new TerrainArray(3);
 		storage[6] = new TerrainArray(3);
+
+		playerPath = new string[500];
 
 		#region Bin 0
 		// (X, X, O)
@@ -172,7 +176,9 @@ public class ArrayScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(arrayFillIndex < 500)
+		if(arrayFillIndex < 499)
+		{
+			arrayFillIndex++;
 			if(arrayFillIndex % 5 == 0)
 		{
 			int select = Random.Range(0, storage[currentBin].Length);
@@ -191,8 +197,36 @@ public class ArrayScript : MonoBehaviour
 			if(currentBin == 0 || currentBin == 6)
 				arrayDirection *= -1;
 		}
+		}
 
-		arrayFillIndex++;
+		if(Input.GetKeyDown(KeyCode.L))
+		{
+			Debug.Log("Key Pressed");
+			LogData();
+		}
+	}
+
+	private void LogData()
+	{
+		Debug.Log("Logging Data");
+		int logNumber = Random.Range(0, 10000);
+		string path = "log" + logNumber.ToString() + ".tad";
+
+		using(FileStream fs = File.Create(path))
+		{
+			StringWriter writer = new StringWriter();
+			writer.Write("test outside loop");
+
+			for(int i = 499; i >= 0; i--)
+			{
+				writer.Write("test inside loop");
+				writer.WriteLine(terrain.GetData((int)LaneColumn.A, i) + terrain.GetData((int)LaneColumn.B, i) + terrain.GetData((int)LaneColumn.C, i));
+			}
+
+
+		}
+
+		Debug.Log("Data logged to: " + path);
 	}
 
 	public TerrainArray Data
