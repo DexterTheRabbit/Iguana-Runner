@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Textures/Iguana_diffuse_updated.tga.meta
 guid: fa11f3a21537648428a65589bfc055c1
+=======
+guid: 1e4debf6e346dac4b9bbb902f056463c
+>>>>>>> origin/Luke_2:Assets/Textures/Iguana_diffuse_updated.tga.meta
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2

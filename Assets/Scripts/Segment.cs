@@ -54,12 +54,14 @@ public class Segment : MonoBehaviour
 
 		if(temp == 'O')
 		{
+			gameObject.tag = "Untagged";
 			return;
 		}
 
 		if(temp == 'W')
 		{
 			//Debug.Log("Spawning a wall at " + column + index.ToString());
+			gameObject.tag = "Wall";
 			
 			GameObject spawn;
 			spawn = (GameObject)GameObject.Instantiate(Resources.Load("Wall"));
@@ -70,6 +72,7 @@ public class Segment : MonoBehaviour
 		if(temp == 'J')
 		{
 			//Debug.Log("Spawning a jump at " + column + index.ToString());
+			gameObject.tag = "FloorObstacle";
 			
 			GameObject spawn;
 			spawn = (GameObject)GameObject.Instantiate(Resources.Load("Jump"));
@@ -80,6 +83,7 @@ public class Segment : MonoBehaviour
 		if(temp == 'S')
 		{
 			//Debug.Log("Spawning a slide at " + column + index.ToString());
+			gameObject.tag = "MiddleObstacle";
 			
 			GameObject spawn;
 			spawn = (GameObject)GameObject.Instantiate(Resources.Load("Slide"));

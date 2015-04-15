@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
 {
@@ -10,6 +11,17 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     GameObject mongoose, _camera;
     public CMongoose mongooseScript;
     CCameraTransition cameraScript;
+
+    private Animator anim;							// a reference to the animator on the character
+    private AnimatorStateInfo currentBaseState;			// a reference to the current state of the animator, used for base layer
+    private AnimatorStateInfo layer2CurrentState;	// a reference to the current state of the animator, used for layer 2
+    private GameObject iguanaModel;
+
+    static int idleState = Animator.StringToHash("Base Layer.Idle");
+    static int runState = Animator.StringToHash("Base Layer.Running");
+    static int jumpState = Animator.StringToHash("Base Layer.Jumping");
+    static int jukeRightState = Animator.StringToHash("Base Layer.JukeRight");
+    static int jukeLeftState = Animator.StringToHash("Base Layer.JukeLeft");
 
     float touchStartX,
         touchStartY,
@@ -32,10 +44,14 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     // Use this for initialization
     void Start()
     {
+        iguanaModel = GameObject.FindGameObjectWithTag("IguanaModel");
         mongoose = GameObject.FindGameObjectWithTag("Mongoose");
         mongooseScript = mongoose.GetComponent<CMongoose>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = _camera.GetComponent<CCameraTransition>();
+        anim = iguanaModel.GetComponent<Animator>();
+        if (anim.layerCount == 2)
+            anim.SetLayerWeight(1, 1);
 
 
         forward = new Vector3(transform.position.x, transform.position.y, _Speed * Time.deltaTime);
@@ -74,7 +90,8 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
             }
             if(mongooseScript.currentState == CMongoose.followStates.eating)
             {
-                Application.LoadLevel("SceneTest");
+                Console.WriteLine("mongose eating");
+                //Application.LoadLevel("SceneTest");
             }
             
             if (canCollide==false)
@@ -144,11 +161,12 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         if (Input.GetKeyDown(KeyCode.A) && transform.position.x > maxLeft.x && currentState != moveStates.jumping)
         {
             _MoveState -= 1;
+            anim.Play("JukeLeft");
         }
-
         if (Input.GetKeyDown(KeyCode.D) && transform.position.x < maxRight.x && currentState != moveStates.jumping)
         {
             _MoveState += 1;
+            anim.Play("JukeRight");
         }
         if (Input.GetKeyDown(KeyCode.W) && currentState != moveStates.jumping)
         {
@@ -184,10 +202,12 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
                 if (touchStartX > touchStopX)
                 {
                     _MoveState -= 1;
+                    anim.Play("JukeLeft");
                 }
                 if (touchStopX > touchStartX)
                 {
                     _MoveState += 1;
+                    anim.Play("JukeRight");
                 }
             }
             if (changeInTouchY > changeInTouchX && changeInTouchY > 40)

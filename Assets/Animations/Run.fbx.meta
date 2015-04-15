@@ -1,0 +1,269 @@
+fileFormatVersion: 2
+guid: 3e632aa59572cbe4895017f6a5bcb493
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Head_Neck
+    100002: Head_neck
+    100004: Iguana_model:polySurface1
+    100006: Jaw
+    100008: Jaw 1
+    100010: joint10
+    100012: joint10 1
+    100014: joint11
+    100016: joint12
+    100018: joint13
+    100020: joint14
+    100022: joint17
+    100024: joint18
+    100026: joint19
+    100028: joint20
+    100030: joint30
+    100032: joint31
+    100034: joint6
+    100036: joint6 1
+    100038: Left_Ankle
+    100040: Left_Arm
+    100042: Left_Elbow
+    100044: Left_Hind_leg
+    100046: Left_Knee
+    100048: Left_Leg
+    100050: Left_Upper_Leg
+    100052: Middle_Back
+    100054: Placement
+    100056: Right_ankle
+    100058: Right_Arm
+    100060: Right_Elbow
+    100062: Right_Hind_leg
+    100064: Right_Knee
+    100066: Right_Leg
+    100068: Right_upper_Leg
+    100070: Root
+    100072: Root_Hips
+    100074: //RootNode
+    100076: Spine_Middle
+    100078: Spine_top
+    100080: squash1Handle
+    100082: Tail_One
+    100084: Tail_Three
+    100086: Tail_Two
+    100088: Upper_Body_Clav
+    400000: Head_Neck
+    400002: Head_neck
+    400004: Iguana_model:polySurface1
+    400006: Jaw
+    400008: Jaw 1
+    400010: joint10
+    400012: joint10 1
+    400014: joint11
+    400016: joint12
+    400018: joint13
+    400020: joint14
+    400022: joint17
+    400024: joint18
+    400026: joint19
+    400028: joint20
+    400030: joint30
+    400032: joint31
+    400034: joint6
+    400036: joint6 1
+    400038: Left_Ankle
+    400040: Left_Arm
+    400042: Left_Elbow
+    400044: Left_Hind_leg
+    400046: Left_Knee
+    400048: Left_Leg
+    400050: Left_Upper_Leg
+    400052: Middle_Back
+    400054: Placement
+    400056: Right_ankle
+    400058: Right_Arm
+    400060: Right_Elbow
+    400062: Right_Hind_leg
+    400064: Right_Knee
+    400066: Right_Leg
+    400068: Right_upper_Leg
+    400070: Root
+    400072: Root_Hips
+    400074: //RootNode
+    400076: Spine_Middle
+    400078: Spine_top
+    400080: squash1Handle
+    400082: Tail_One
+    400084: Tail_Three
+    400086: Tail_Two
+    400088: Upper_Body_Clav
+    4300000: Iguana_model:polySurface1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Iguana_model:polySurface1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 447
+      lastFrame: 472
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Iguana_model:polySurface1
+        weight: 1
+      - path: Placement
+        weight: 1
+      - path: Placement/Left_Hind_leg
+        weight: 1
+      - path: Placement/Left_Upper_Leg
+        weight: 1
+      - path: Placement/Right_Hind_leg
+        weight: 1
+      - path: Placement/Right_upper_Leg
+        weight: 1
+      - path: Placement/Root_Hips
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back/Upper_Body_Clav
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back/Upper_Body_Clav/Head_Neck
+        weight: 1
+      - path: Placement/Root_Hips/Middle_Back/Upper_Body_Clav/Head_Neck/Jaw 1
+        weight: 1
+      - path: Placement/Root_Hips/Tail_Three
+        weight: 1
+      - path: Placement/Root_Hips/Tail_Three/Tail_Two
+        weight: 1
+      - path: Placement/Root_Hips/Tail_Three/Tail_Two/Tail_One
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/joint11
+        weight: 1
+      - path: Root/joint11/joint12
+        weight: 1
+      - path: Root/joint11/joint12/joint13
+        weight: 1
+      - path: Root/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: Root/Left_Leg
+        weight: 1
+      - path: Root/Left_Leg/Left_Knee
+        weight: 1
+      - path: Root/Left_Leg/Left_Knee/Left_Ankle
+        weight: 1
+      - path: Root/Left_Leg/Left_Knee/Left_Ankle/joint10
+        weight: 1
+      - path: Root/Right_Leg
+        weight: 1
+      - path: Root/Right_Leg/Right_Knee
+        weight: 1
+      - path: Root/Right_Leg/Right_Knee/Right_ankle
+        weight: 1
+      - path: Root/Right_Leg/Right_Knee/Right_ankle/joint10 1
+        weight: 1
+      - path: Root/Spine_Middle
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/Jaw
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/Jaw/joint17
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint18
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint19
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint30
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Head_neck/joint20/joint31
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Left_Arm
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Left_Arm/Left_Elbow
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Left_Arm/Left_Elbow/joint6
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Right_Arm
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Right_Arm/Right_Elbow
+        weight: 1
+      - path: Root/Spine_Middle/Spine_top/Right_Arm/Right_Elbow/joint6 1
+        weight: 1
+      - path: squash1Handle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .200000003
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
