@@ -9,6 +9,7 @@ public class CGroundGeneration : MonoBehaviour
     List<GameObject> _activeLaneSegments = new List<GameObject>();
     Vector3 _spawnPosition;
     Vector3 _positionIncrement = new Vector3(0f, 0f, 50f);
+    GameObject _objectToMove;
 
 	// Use this for initialization
 	void Start () 
@@ -41,17 +42,24 @@ public class CGroundGeneration : MonoBehaviour
             if (laneSegment.name == objectName && laneSegment.activeSelf == false)
             {
                 spawnNew = false;
+                _objectToMove = laneSegment;
             }
             else if (laneSegment.name == objectName && laneSegment.activeSelf == true)
             {
                 spawnNew = true;
             }
+        }
 
-            if(spawnNew)
-            {
-                GameObject temp = (GameObject)Resources.Load(objectName);
-                _activeLaneSegments.Add(temp);
-            }
+        if (spawnNew)
+        {
+            GameObject temp = (GameObject)Resources.Load(objectName);
+            _activeLaneSegments.Add(temp);
+            temp.transform.position = position;
+        }
+        else
+        {
+            _objectToMove.transform.position = position;
+            _objectToMove.SetActive(true);
         }
 
         _spawnPosition += _positionIncrement;

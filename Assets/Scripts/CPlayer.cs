@@ -284,6 +284,9 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
                     }
                 }
             }
+
+            //if(objecCollidedWith.tag == "")
+
             if (objectCollidedWith.tag == "Wall")
             {
                 //trigger wall hit/kill animation
