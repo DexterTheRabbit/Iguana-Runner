@@ -12,13 +12,14 @@ public class CBillboardPool : MonoBehaviour
 
     [HideInInspector]
     public int num = 0;
+    //int num2 = 0;
 
-    GameObject player;
+    //GameObject player;
 
 	// Use this for initialization
 	void Start ()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
 
         ObjInstantiate();
 	}
@@ -74,4 +75,15 @@ public class CBillboardPool : MonoBehaviour
 	void Update () 
     {
 	}
+
+    //public IEnumerator Spawn()
+    //{
+    //    while(Camera.main.transform.position.z > -40f)
+    //    {
+    //        Activate(UnityEngine.Random.Range(0, 5), new Vector3(0f, -0.5f, num2 * 50f), Quaternion.identity);
+    //        num2++;
+
+    //        yield return new WaitForSeconds(1.7f);
+    //    }
+    //}
 }
