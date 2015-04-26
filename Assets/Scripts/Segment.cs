@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Segment : MonoBehaviour 
 {
@@ -17,6 +18,7 @@ public class Segment : MonoBehaviour
 
 	// Holds the script that contains the Terrain Array
 	ArrayScript manager;
+	//List<GameObject> allObjects;
 
 	// The number of Path Segment Rows
 	private readonly int numberOfRows = 32;
@@ -30,6 +32,8 @@ public class Segment : MonoBehaviour
 		// Find and save the script that holds the Terrain Array
 		GameObject arrayManager = GameObject.FindGameObjectWithTag("Manager");
 		manager = arrayManager.GetComponent<ArrayScript>();
+
+		//allObjects = manager.Instance.Objects;
 
 		// Find and save all Path Segments in the appropriate row
 		//row = GameObject.FindGameObjectsWithTag(rowName);
@@ -63,8 +67,14 @@ public class Segment : MonoBehaviour
 			//Debug.Log("Spawning a wall at " + column + index.ToString());
 			gameObject.tag = "Wall";
 			
-			GameObject spawn;
-			spawn = (GameObject)GameObject.Instantiate(Resources.Load("Wall"));
+			GameObject spawn = FindInactive(gameObject.tag);
+
+			if(spawn == null)
+			{
+				spawn = (GameObject)GameObject.Instantiate(Resources.Load("Wall"));
+				manager.Instance.Objects.Add(spawn);
+			}
+
 			spawn.transform.position = transform.position;
 			return;
 		}
@@ -74,8 +84,14 @@ public class Segment : MonoBehaviour
 			//Debug.Log("Spawning a jump at " + column + index.ToString());
 			gameObject.tag = "FloorObstacle";
 			
-			GameObject spawn;
-			spawn = (GameObject)GameObject.Instantiate(Resources.Load("Jump"));
+			GameObject spawn = FindInactive(gameObject.tag);
+
+			if(spawn == null)
+			{
+				spawn = (GameObject)GameObject.Instantiate(Resources.Load("Jump"));
+				manager.Instance.Objects.Add(spawn);
+			}
+
 			spawn.transform.position = transform.position;
 			return;
 		}
@@ -85,11 +101,33 @@ public class Segment : MonoBehaviour
 			//Debug.Log("Spawning a slide at " + column + index.ToString());
 			gameObject.tag = "MiddleObstacle";
 			
-			GameObject spawn;
-			spawn = (GameObject)GameObject.Instantiate(Resources.Load("Slide"));
+			GameObject spawn = FindInactive(gameObject.tag);
+
+			if(spawn == null)
+			{
+				spawn = (GameObject)GameObject.Instantiate(Resources.Load("Slide"));
+				manager.Instance.Objects.Add(spawn);
+			}
+
 			spawn.transform.position = transform.position;
 			return;
 		}
+	}
+
+	private GameObject FindInactive(string name)
+	{
+		GameObject found = null;
+		foreach(GameObject element in manager.Instance.Objects)
+		{
+			if(element.tag == name && element.activeSelf == false)
+			{
+				found = element;
+				found.SetActive(true);
+				return found;
+			}
+		}
+
+		return found;
 	}
 
 	void OnTriggerEnter(Collider other)

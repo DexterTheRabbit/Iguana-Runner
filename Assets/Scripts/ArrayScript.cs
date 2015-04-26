@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 public class ArrayScript : MonoBehaviour 
@@ -9,6 +10,8 @@ public class ArrayScript : MonoBehaviour
 	private TerrainArray terrain;
 	private TerrainArray[] storage;
 	private string[] playerPath;
+
+	private List<GameObject> allObjects;
 
 	private char wall = 'W';
 	private char jump = 'J';
@@ -32,7 +35,7 @@ public class ArrayScript : MonoBehaviour
 		instance = this;
 		//randomNumber = new Random();
 
-		terrain = new TerrainArray(500);
+		terrain = new TerrainArray(3000);
 		storage = new TerrainArray[7];
 		storage[0] = new TerrainArray(3);
 		storage[1] = new TerrainArray(3);
@@ -42,7 +45,9 @@ public class ArrayScript : MonoBehaviour
 		storage[5] = new TerrainArray(3);
 		storage[6] = new TerrainArray(3);
 
-		playerPath = new string[500];
+		playerPath = new string[3000];
+
+		allObjects = new List<GameObject>();
 
 		#region Bin 0
 		// (X, X, O)
@@ -176,10 +181,10 @@ public class ArrayScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(arrayFillIndex < 499)
+		if(arrayFillIndex < 2999)
 		{
 			arrayFillIndex++;
-			if(arrayFillIndex % 5 == 0)
+			if(arrayFillIndex % 8 == 0)
 		{
 			int select = Random.Range(0, storage[currentBin].Length);
 
@@ -223,7 +228,7 @@ public class ArrayScript : MonoBehaviour
 				writer.WriteLine(terrain.GetData((int)LaneColumn.A, i) + terrain.GetData((int)LaneColumn.B, i) + terrain.GetData((int)LaneColumn.C, i));
 			}
 
-
+			fs.Flush();
 		}
 
 		Debug.Log("Data logged to: " + path);
@@ -242,6 +247,14 @@ public class ArrayScript : MonoBehaviour
 		get
 		{
 			return instance;
+		}
+	}
+
+	public List<GameObject> Objects
+	{
+		get
+		{
+			return allObjects;
 		}
 	}
 }

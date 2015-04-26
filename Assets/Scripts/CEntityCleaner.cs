@@ -14,9 +14,10 @@ public class CEntityCleaner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z < player.transform.position.z - 65)
+        if (transform.position.z < player.transform.position.z - 10)
         {
-            GameObject.Destroy(gameObject);
+            //GameObject.Destroy(gameObject);
+			gameObject.SetActive(false);
         }
     }
 }
