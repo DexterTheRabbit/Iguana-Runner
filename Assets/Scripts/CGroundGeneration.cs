@@ -12,7 +12,7 @@ public class CGroundGeneration : MonoBehaviour
     private List<GameObject> _activeLaneSegments = new List<GameObject>();
     
     // SpawnPosition is where the next object will appear. positionIncrement is a vector3 that doesn't change.
-    public Vector3 _spawnPosition;
+    private Vector3 _spawnPosition;
     private Vector3 _positionIncrement = new Vector3(0f, 0f, 50f);
     
     // In the event that we move a previously spawned object instead of spawning a new one, this will hold the object while we move it.
@@ -21,20 +21,23 @@ public class CGroundGeneration : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        // This will be concatonated with the iterator in the following for loop to create our dictionary of object names.
-        string itemName = "ground_section_";
-
-        for (int i = 1; i == 17; i++)
+        Debug.Log("starting");
+        
+        for (int i = 1; i <= 17; i++)
         {
-            itemName = itemName + i.ToString();
+            // This will be concatonated with the iterator in the following for loop to create our dictionary of object names.
+            string itemName = "Ground_Section_";
+            itemName = itemName + i;
 
             _groundDictionary.Add(i, itemName);
+            Debug.Log(itemName);
         }
 
         // This pre-spawns four objects. Objects that spawn after will spawn at the end of the fourth one.
-        for (int i = 0; i == 4; i++)
+        for (int i = 0; i <= 4; i++)
         {
             SpawnNext();
+            
         }
 	}
 
@@ -55,12 +58,12 @@ public class CGroundGeneration : MonoBehaviour
         //Check to see if we've spawned an object with this name before.
         foreach(GameObject laneSegment in _activeLaneSegments)
         {
-            if (laneSegment.name == objectName && laneSegment.activeSelf == false || laneSegment.name == objectName + " (clone)" && laneSegment.activeSelf == false)
+            if (laneSegment.name == objectName && laneSegment.activeSelf == false || laneSegment.name == objectName + "(Clone)" && laneSegment.activeSelf == false)
             {
                 spawnNew = false;
                 _objectToMove = laneSegment;
             }
-            else if (laneSegment.name == objectName && laneSegment.activeSelf == true || laneSegment.name == objectName + " (clone)" && laneSegment.activeSelf == true)
+            else if (laneSegment.name == objectName && laneSegment.activeSelf == true || laneSegment.name == objectName + "(Clone)" && laneSegment.activeSelf == true)
             {
                 spawnNew = true;
             }
@@ -69,7 +72,10 @@ public class CGroundGeneration : MonoBehaviour
         if (spawnNew)
         {
             GameObject temp = (GameObject)Resources.Load(objectName);
+            GameObject.Instantiate(temp);
+            //Debug.Log(objectName);
             _activeLaneSegments.Add(temp);
+            Debug.Log(temp);
             temp.transform.position = _spawnPosition;
         }
         else

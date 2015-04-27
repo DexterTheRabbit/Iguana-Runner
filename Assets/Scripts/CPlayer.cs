@@ -49,6 +49,7 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         mongoose = GameObject.FindGameObjectWithTag("Mongoose");
         mongooseScript = mongoose.GetComponent<CMongoose>();
         generationScript = this.GetComponent<CGroundGeneration>();
+
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = _camera.GetComponent<CCameraTransition>();
         anim = iguanaModel.GetComponent<Animator>();
