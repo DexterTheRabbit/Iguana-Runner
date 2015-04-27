@@ -10,6 +10,7 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
     Vector3 maxRight, maxLeft, forward, centerRunVector;
     GameObject mongoose, _camera;
     public CMongoose mongooseScript;
+    CGroundGeneration generationScript;
     CCameraTransition cameraScript;
 
     private Animator anim;							// a reference to the animator on the character
@@ -47,6 +48,7 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
         iguanaModel = GameObject.FindGameObjectWithTag("IguanaModel");
         mongoose = GameObject.FindGameObjectWithTag("Mongoose");
         mongooseScript = mongoose.GetComponent<CMongoose>();
+        generationScript = this.GetComponent<CGroundGeneration>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = _camera.GetComponent<CCameraTransition>();
         anim = iguanaModel.GetComponent<Animator>();
@@ -285,7 +287,10 @@ public class CPlayer : MonoBehaviour//PLAYER HAS TO START AT Y POSITION 0
                 }
             }
 
-            //if(objecCollidedWith.tag == "")
+            if(objectCollidedWith.tag == "Billboard")
+            {
+                generationScript.SpawnNext();
+            }
 
             if (objectCollidedWith.tag == "Wall")
             {
